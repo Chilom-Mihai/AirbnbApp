@@ -49,18 +49,18 @@ export const propertySchema = z.object({
   name: z
     .string()
     .min(2, {
-      message: "name must be at least 2 characters.",
+      message: "Name must be at least 2 characters.",
     })
     .max(100, {
-      message: "name must be less than 100 characters.",
+      message: "Name must be less than 100 characters.",
     }),
   tagline: z
     .string()
     .min(2, {
-      message: "tagline must be at least 2 characters.",
+      message: "Tagline must be at least 2 characters.",
     })
     .max(100, {
-      message: "tagline must be less than 100 characters.",
+      message: "Tagline must be less than 100 characters.",
     }),
   price: z.coerce.number().int().min(0, {
     message: "price must be a positive number.",

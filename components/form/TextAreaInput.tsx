@@ -16,7 +16,7 @@ function TextAreaInput({ name, labelText, defaultValue }: TextAreaInputProps) {
       <Textarea
         id={name}
         name={name}
-        defaultValue={defaultValue}
+        defaultValue={defaultValue || tempDefaultDescription}
         rows={5}
         required
         className="leading-loose"
@@ -25,7 +25,6 @@ function TextAreaInput({ name, labelText, defaultValue }: TextAreaInputProps) {
   );
 }
 
-// const tempDefaultDescription =
-//   "Glamping Tuscan Style in an Aframe Cabin Tent, nestled in a beautiful olive orchard. AC, heat, Queen Bed, TV, Wi-Fi and an amazing view. Close to Weeki Wachee River State Park, mermaids, manatees, Chassahwitzka River and on the SC Bike Path. Kayaks available for rivers. Bathhouse, fire pit, Kitchenette, fresh eggs. Relax & enjoy fresh country air. No pets please. Ducks, hens and roosters roam the grounds. We have a Pot Cake Rescue from Bimini, Retriever and Pom dog. The space is inspiring and relaxing. Enjoy the beauty of the orchard. Spring trees are in blossom and harvested in Fall. We have a farm store where we sell our farm to table products";
-
+const tempDefaultDescription =
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
 export default TextAreaInput;
