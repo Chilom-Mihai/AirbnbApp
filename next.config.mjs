@@ -7,7 +7,7 @@ const nextConfig = {
         hostname: "xjjlxkwxzoblwerunoaq.supabase.co",
       },
     ],
-    domains: ["img.clerk.com"],
+    domains: ["img.clerk.com", "flagcdn.com"],
   },
 };
 
