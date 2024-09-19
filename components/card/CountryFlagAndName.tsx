@@ -9,7 +9,7 @@ function CountryFlagAndName({ countryCode }: { countryCode: string }) {
       ? `${validCountry.name.substring(0, 20)}...`
       : validCountry.name;
   return (
-    <span className="flex justify-between items-center gap-2 text-sm">
+    <span className="flex justify-start items-center gap-2 text-sm">
       <Image
         src={validCountry.flagUrl}
         alt={`${validCountry.name} flag`}
