@@ -11,7 +11,6 @@ import {
   validateWithZodSchema,
 } from "./schemas";
 import { uploadImage } from "./supabase";
-import { render } from "react-dom";
 
 const getAuthUser = async () => {
   const user = await currentUser();
@@ -239,4 +238,26 @@ export const toggleFavoriteAction = async (prevState: {
   } catch (error) {
     return renderError(error);
   }
+};
+
+export const fetchFavorites = async () => {
+  const user = await getAuthUser();
+  const favorites = await db.favorite.findMany({
+    where: {
+      profileId: user.id,
+    },
+    select: {
+      property: {
+        select: {
+          id: true,
+          name: true,
+          tagline: true,
+          image: true,
+          price: true,
+          country: true,
+        },
+      },
+    },
+  });
+  return favorites.map((favorite) => favorite.property);
 };
