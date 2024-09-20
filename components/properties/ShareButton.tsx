@@ -5,8 +5,7 @@ import {
   PopoverTrigger,
 } from "@/components/ui/popover";
 import { Button } from "../ui/button";
-import { LuShare2 } from "react-icons/lu";
-
+import { LuShare2, LuClipboardCopy } from "react-icons/lu";
 import {
   TwitterShareButton,
   EmailShareButton,
@@ -15,6 +14,7 @@ import {
   EmailIcon,
   LinkedinIcon,
 } from "react-share";
+import { useState } from "react";
 
 function ShareButton({
   propertyId,
@@ -23,9 +23,18 @@ function ShareButton({
   propertyId: string;
   name: string;
 }) {
+  const [copied, setCopied] = useState(false);
   const url = process.env.NEXT_PUBLIC_WEBSITE_URL;
-  //construct the share link
   const shareLink = `${url}/properties/${propertyId}`;
+
+  // Function to copy link to clipboard
+  const handleCopy = () => {
+    navigator.clipboard.writeText(shareLink).then(() => {
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1000); // Reset after 2 seconds
+    });
+  };
+
   return (
     <Popover>
       <PopoverTrigger asChild>
@@ -48,6 +57,16 @@ function ShareButton({
         <EmailShareButton url={shareLink} title={name}>
           <EmailIcon size={32} round />
         </EmailShareButton>
+        {/* Add Copy to Clipboard functionality */}
+        <Button
+          variant="outline"
+          size="icon"
+          className="p-2"
+          onClick={handleCopy}
+        >
+          <LuClipboardCopy />
+        </Button>
+        {copied && <span className="text-xs text-green-500">Copied!</span>}
       </PopoverContent>
     </Popover>
   );
