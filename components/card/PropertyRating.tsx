@@ -2,7 +2,7 @@ import React from "react";
 import { FaStar } from "react-icons/fa";
 
 function PropertyRating({
-  propertyId,
+  // propertyId,
   inPage,
 }: {
   propertyId: string;
