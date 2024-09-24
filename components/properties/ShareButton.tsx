@@ -31,7 +31,7 @@ function ShareButton({
   const handleCopy = () => {
     navigator.clipboard.writeText(shareLink).then(() => {
       setCopied(true);
-      setTimeout(() => setCopied(false), 1000); // Reset after 2 seconds
+      setTimeout(() => setCopied(false), 1000);
     });
   };
 
