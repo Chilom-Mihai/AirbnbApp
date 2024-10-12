@@ -1,7 +1,6 @@
 import FavoriteToggleButton from "@/components/card/FavoriteToggleButton";
 import PropertyRating from "@/components/card/PropertyRating";
 import Amenities from "@/components/properties/Amenities";
-import BookingCalendar from "@/components/properties/BookingCalendar";
 import BreadCrumbs from "@/components/properties/BreadCrumbs";
 import Description from "@/components/properties/Description";
 import ImageContainer from "@/components/properties/ImageContainer";
@@ -16,7 +15,6 @@ import { fetchPropertyDetails, findExistingReview } from "@/utils/actions";
 import { auth } from "@clerk/nextjs/server";
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
-import React from "react";
 
 const DynamicMap = dynamic(
   () => import("@/components/properties/PropertyMap"),
@@ -66,7 +64,7 @@ async function PropertyDetailsPage({ params }: { params: { id: string } }) {
           <DynamicMap countryCode={property.country} />
         </div>
         <div className="lg:col-span-4 flex flex-col items-center">
-          <BookingCalendar />
+          {/* <calendar /> */}
         </div>
       </section>
       {reviewDoesNotExist && <SubmitReview propertyId={property.id} />}
