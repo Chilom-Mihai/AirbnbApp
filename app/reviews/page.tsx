@@ -26,7 +26,7 @@ async function ReviewsPage() {
           };
           return (
             <ReviewCard key={review.id} reviewInfo={reviewInfo}>
-              <DeleteReview reviewId={review.id} />
+              <DeleteRewview reviewId={review.id} />
             </ReviewCard>
           );
         })}
@@ -35,7 +35,7 @@ async function ReviewsPage() {
   );
 }
 
-const DeleteReview = ({ reviewId }: { reviewId: string }) => {
+const DeleteRewview = ({ reviewId }: { reviewId: string }) => {
   const deleteRewview = deleteReviewAction.bind(null, { reviewId });
   return (
     <FormContainer action={deleteRewview}>
